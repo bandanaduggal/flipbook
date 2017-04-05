@@ -62,15 +62,19 @@
             });
         }
 
-        // Load the HTML4 version if there's not CSS transform
+        window.onload = (function() {
+            return function() {
+                yepnope({
+                    test: Modernizr.csstransforms,
+                    yep: ['lib/turn.js'],
+                    nope: ['lib/turn.html4.min.js'],
+                    both: ['css/basic.css'],
+                    complete: loadApp
+                });
+            };
+        })();
 
-        yepnope({
-            test: Modernizr.csstransforms,
-            yep: ['lib/turn.js'],
-            nope: ['lib/turn.html4.min.js'],
-            both: ['css/basic.css'],
-            complete: loadApp
-        });
+        // Load the HTML4 version if there's not CSS transform
     </script>
 
 </body>
