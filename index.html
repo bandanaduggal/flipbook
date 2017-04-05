@@ -463,6 +463,10 @@
                             both: ['lib/zoom.min.js', 'js/magazine.js', 'css/magazine.css'],
                             complete: loadApp
                         });
+
+                        setInterval(function() {
+                            $('.magazine').turn('next');
+                        }, 3000);
                     };
                 })();
             </script>
